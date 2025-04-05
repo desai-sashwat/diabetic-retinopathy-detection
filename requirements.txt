@@ -1,0 +1,33 @@
+# Core scientific packages
+numpy>=1.21.0
+pandas>=1.3.0
+scipy>=1.7.0
+matplotlib>=3.4.2
+seaborn>=0.11.1
+
+# Machine learning packages
+scikit-learn>=0.24.2
+tensorflow>=2.6.0
+keras>=2.6.0
+h5py>=3.1.0
+
+# Image processing
+opencv-python>=4.5.3
+Pillow>=8.3.1
+
+# Utilities
+tqdm>=4.61.2
+ipykernel>=6.0.0
+jupyter>=1.0.0
+notebook>=6.4.0
+
+# For model evaluation and visualization
+scikit-image>=0.18.0
+joblib>=1.0.0
+
+# For augmentation
+albumentations>=1.0.0
+
+# For interpretability (optional)
+eli5>=0.11.0
+shap>=0.39.0
