@@ -1,21 +1,21 @@
 # Detection of Diabetic Retinopathy Using Deep Learning Techniques
 
-## Overview
-This project implements deep learning techniques to detect diabetic retinopathy (DR) from fundus images. Diabetic retinopathy is a severe eye condition affecting retinal blood vessels, which can lead to vision impairment or blindness if not detected and treated early. This work aims to assist ophthalmologists in diagnosing DR more efficiently and accurately.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![IEEE](https://img.shields.io/badge/Publication-IEEE-blue)](https://doi.org/10.1109/AIC61668.2024.10731034)
 
 ## 📋 Table of Contents
-- [Project Background](#project-background)
+- [Project Overview](#project-overview)
 - [Dataset](#dataset)
-- [Methodology](#methodology)
+- [Repository Structure](#repository-structure)
+- [Models Implemented](#models-implemented)
 - [Results](#results)
-- [Conclusion](#conclusion)
 - [Publication](#publication)
 - [Setup and Installation](#setup-and-installation)
 - [Usage](#usage)
 - [Future Scope](#future-scope)
 - [Acknowledgments](#acknowledgments)
 
-## Project Background
+## Project Overview
 Diabetic Retinopathy (DR) is a prevalent microvascular complication occurring due to diabetes mellitus. It affects the blood vessels inside the retina, potentially causing vision loss or complete blindness if left untreated. Currently, doctors examine and classify the severity of DR based on manual interpretations of fundus images, which is time-consuming and labor-intensive. This project aims to automate this process using deep learning techniques.
 
 ## Dataset
@@ -36,21 +36,43 @@ The augmentation techniques used include:
 - Changing Brightness
 - Shearing
 
-## Methodology
+## Repository Structure
+diabetic-retinopathy-detection/
+│
+├── notebooks/           # Jupyter notebooks for analysis and model development
+│   ├── cnn/             # CNN model implementations
+│   │   ├── cnnv3.ipynb
+│   │   ├── cnnv7.ipynb
+│   │   └── cnnv9-raw.ipynb
+│   ├── densenet/        # DenseNet model implementations
+│   │   ├── densenet121-dr.ipynb
+│   │   ├── densenet121-dr-raw.ipynb
+│   │   ├── densenet169-dr-2.ipynb
+│   │   └── densenet169-dr-raw.ipynb
+│   └── resnet-50/       # ResNet model implementations
+│       ├── resnet50-dr.ipynb
+│       └── resnet50-dr-raw.ipynb
+├── .gitignore
+├── LICENSE
+├── README.md
+└── requirements.txt     # Project dependencies
+
+## Models Implemented
 This project implements and compares several deep learning models:
 
 ### 1. Convolutional Neural Network (CNN)
-Two custom CNN architectures were designed and implemented:
-- **Custom CNN 1**: A sequential model with multiple convolutional and pooling layers
-- **Custom CNN 2**: A modified architecture with different filter configurations
+Three custom CNN architectures were implemented and tested:
+- **CNN V3**: A basic implementation of a convolutional neural network for DR detection
+- **CNN V7**: An improved CNN architecture with additional layers and optimizations
+- **CNN V9-Raw**: CNN model tested on the raw (non-augmented) dataset
 
 ### 2. Dense Convolutional Network (DenseNet)
-Two pre-trained DenseNet variants were used:
-- **DenseNet 121**: 31 MB model with dense connections between layers
-- **DenseNet 169**: 55 MB model with more layers than DenseNet 121
+Four DenseNet experiments were conducted using pre-trained models:
+- **DenseNet 121**: Tested on both augmented and raw datasets
+- **DenseNet 169**: Tested on both augmented and raw datasets, with further optimization in the "-2" version
 
 ### 3. Residual Network (ResNet)
-- **ResNet 50**: Implemented with residual blocks to improve gradient flow
+- **ResNet 50**: Implemented and tested on both augmented and raw datasets
 
 ## Results
 Performance comparison of the models:
@@ -66,9 +88,6 @@ Performance comparison of the models:
 
 DenseNet 169 demonstrated the best performance with a testing accuracy of 97.17% on the augmented dataset.
 
-## Conclusion
-This research successfully applied deep learning techniques to detect Diabetic Retinopathy from fundus images. The results show that DenseNet 169 outperforms other models in terms of accuracy. The augmented dataset generally produced better results than the raw dataset, highlighting the importance of data augmentation in medical imaging applications.
-
 ## Publication
 This work has been published in the IEEE 3rd World Conference on Applied Intelligence and Computing (AIC):
 
@@ -76,5 +95,45 @@ S. Desai and S. Dodani, "Detection of Diabetic Retinopathy Using Deep Learning T
 
 ## Setup and Installation
 ### Prerequisites
-```python
-# Required libraries will be listed in requirements.txt
+```bash
+# Clone this repository
+git clone https://github.com/desai-sashwat/diabetic-retinopathy-detection.git
+cd diabetic-retinopathy-detection
+
+# Install dependencies
+pip install -r requirements.txt
+
+## Dataset Preparation
+Due to privacy considerations, the raw dataset is not included in this repository. However, you can:
+1. Use your own fundus images
+2. Access publicly available DR datasets such as APTOS 2019 or EyePACS
+
+## Usage
+The project notebooks are organized into three main categories:
+
+### CNN Models
+- `notebooks/cnn/cnnv3.ipynb`: Basic CNN implementation for DR detection
+- `notebooks/cnn/cnnv7.ipynb`: Improved CNN with additional layers and optimizations
+- `notebooks/cnn/cnnv9-raw.ipynb`: CNN model tested on the raw dataset
+
+### DenseNet Models
+- `notebooks/densenet/densenet121-dr.ipynb`: DenseNet 121 tested on the augmented dataset
+- `notebooks/densenet/densenet121-dr-raw.ipynb`: DenseNet 121 tested on the raw dataset
+- `notebooks/densenet/densenet169-dr-2.ipynb`: Enhanced DenseNet 169 implementation
+- `notebooks/densenet/densenet169-dr-raw.ipynb`: DenseNet 169 tested on the raw dataset
+
+### ResNet Models
+- `notebooks/resnet-50/resnet50-dr.ipynb`: ResNet 50 tested on the augmented dataset
+- `notebooks/resnet-50/resnet50-dr-raw.ipynb`: ResNet 50 tested on the raw dataset
+
+## Future Scope
+Future enhancements for this project include:
+- Implementing multi-class classification for DR severity grading
+- Exploring attention mechanisms and transformer-based models
+- Developing a web interface for real-time DR detection
+- Integration with ophthalmology information systems
+
+## Acknowledgments
+- Malpani Eye Hospital And Laser Centre for providing the dataset
+- IEEE for publishing our research
+- The research community for developing and sharing deep learning frameworks and models
