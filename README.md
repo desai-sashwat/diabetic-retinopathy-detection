@@ -37,25 +37,19 @@ The augmentation techniques used include:
 - Shearing
 
 ## Repository Structure
-diabetic-retinopathy-detection/
-│
-├── notebooks/           # Jupyter notebooks for analysis and model development
-│   ├── cnn/             # CNN model implementations
-│   │   ├── cnnv3.ipynb
-│   │   ├── cnnv7.ipynb
-│   │   └── cnnv9-raw.ipynb
-│   ├── densenet/        # DenseNet model implementations
-│   │   ├── densenet121-dr.ipynb
-│   │   ├── densenet121-dr-raw.ipynb
-│   │   ├── densenet169-dr-2.ipynb
-│   │   └── densenet169-dr-raw.ipynb
-│   └── resnet-50/       # ResNet model implementations
-│       ├── resnet50-dr.ipynb
-│       └── resnet50-dr-raw.ipynb
-├── .gitignore
+.
+├── data
+├── models
+├── notebooks
+│   ├── cnn
+│   ├── densenet
+│   └── resnet
+├── results
+│   ├── figures
+│   └── metrics
+├── src
 ├── LICENSE
-├── README.md
-└── requirements.txt     # Project dependencies
+└── README.md
 
 ## Models Implemented
 This project implements and compares several deep learning models:
