@@ -102,6 +102,7 @@ cd diabetic-retinopathy-detection
 
 # Install dependencies
 pip install -r requirements.txt
+```
 
 ## Dataset Preparation
 Due to privacy considerations, the raw dataset is not included in this repository. However, you can:
